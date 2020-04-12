@@ -1,4 +1,5 @@
 const os = require ('os');
+const log = require('./logger');
 
 setInterval(() => {
 
@@ -15,8 +16,10 @@ setInterval(() => {
     }
     console.clear();
     console.log('+++++++Bom++++++++');
+
     console.table(objStats);
-    
+
+    log(`${JSON.stringify(objStats)} \n`);
 }, 1000)
 
 
