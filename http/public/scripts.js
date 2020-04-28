@@ -3,6 +3,72 @@ const input = document.querySelector("input")
 const form = document.querySelector('form')
 
 
+
+
+  function CarregarView(){
+
+    const res = await fetch("http://localhost:3000/")
+    .then((data) => data.json())
+
+    res.urls.forEach(element => 
+        console.log(element.name)
+    );
+
+    res.urls.map(element => 
+        console.log(element.name)
+    );
+     
+    res.urls.map((name , url) => 
+        console.log(name , url)
+    );
+
+    res.urls.map((elemento) => { 
+        console.log('map ') 
+        console.log(elemento)
+      }
+    );
+    
+
+    res.urls.map(element => 
+        addElement({name : element.name, url :element.url})
+    );
+}
+
+
+
+
+
+async function listaDados(){
+
+    const res = await fetch("http://localhost:3000/")
+    .then((data) => data.json())
+
+    res.urls.forEach(element => 
+        console.log(element.name)
+    );
+
+    res.urls.map(element => 
+        console.log(element.name)
+    );
+     
+    res.urls.map((name , url) => 
+        console.log(name , url)
+    );
+
+    res.urls.map((elemento) => { 
+        console.log('map ') 
+        console.log(elemento)
+      }
+    );
+    
+
+    res.urls.map(element => 
+        addElement({name : element.name, url :element.url})
+    );
+}
+
+listaDados();
+
 function addElement({ name, url }) {
     const li = document.createElement('li')
     const a = document.createElement("a")

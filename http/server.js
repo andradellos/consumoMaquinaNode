@@ -36,4 +36,4 @@ console.log(file);
   //  if(req.url ==='/contato')
   //      return res.end('<h1>Teca qual seu contato?</h1>');
  
-}).listen(5151, () => {console.log('Server is running!!!')})
+}).listen(5151, () => {console.log('Server is running porta 5151!!!')})

@@ -4,19 +4,23 @@ const fs = require('fs');
 const path = require('path');
 
 const dataJson = require('./urls.json');
+
+function saveJson  (cb){
+
+    return fs.writeFile(
+        path.join(__dirname, 'urls.json'), 
+        JSON.stringify(dataJson,null,2),
+        err => {
+            if (err) throw err
+           cb(JSON.stringify({mensage:'OK'}))
+        })
+    }
+
 http.createServer((req, res) => {
-
-    function saveJson  (cb){
-
-        return fs.writeFile(
-            path.join(__dirname, 'urls.json'), 
-            JSON.stringify(dataJson,null,2),
-            err => {
-                if (err) throw err
-               cb(JSON.stringify({mensage:'OK'}))
-            })
-        }
-
+    
+res.writeHead(200, {
+    'Access-Control-Allow-Origin': '*'
+})
 
   const {name, url, del} =  URL.parse(req.url, true).query;
 
